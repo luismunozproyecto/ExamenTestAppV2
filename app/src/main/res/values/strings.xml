@@ -1,3 +1,21 @@
 <resources>
+    <!-- GENERAL -->
     <string name="app_name">ExamenTestApp</string>
+    <string name="ma_tv_nombre">ExamenTestApp</string>
+    <string name="gen_campos_vacios">Debes de rellenar todos los campos</string>
+    <!--LOGIN ACTIVITY-->
+    <string name="la_tv_login">Acceder al sistema</string>
+    <string name="la_et_usuario">Usuario</string>
+    <string name="la_et_password">Contraseña</string>
+    <string name="la_bt_registro">Registro</string>
+    <string name="la_bt_login">Iniciar Sesión</string>
+
+    <!--REGISTRO ACTIVITY-->
+    <string name="ra_tv_registro">Registro</string>
+    <string name="ra_et_usuario">Usuario</string>
+    <string name="ra_et_password">Contraseña</string>
+    <string name="ra_et_password2">Repite contraseña</string>
+    <string name="ra_et_email">Email</string>
+    <string name="ra_et_dni">DNI</string>
+    <string name="ra_bt_registrarme">Registrarme</string>
 </resources>

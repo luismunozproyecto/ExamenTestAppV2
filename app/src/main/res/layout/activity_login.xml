@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="es.jujoru.examentestapp.ActivityLogin">
+
+    <TextView
+        android:id="@+id/laTextViewPrincipal"
+        style="@style/TextViewPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/la_tv_login"
+        android:layout_marginTop="@dimen/d32"
+        android:layout_marginBottom="@dimen/d32"
+         />
+
+    <EditText
+        android:id="@+id/la_et_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:backgroundTint="@color/green_800"
+        style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+
+        android:hint="@string/la_et_usuario"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/la_et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:hint="@string/la_et_password"
+        android:inputType="textPassword" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/d32">
+
+        <Button
+            android:id="@+id/la_bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/la_bt_login"
+            android:onClick="onClickLogin"
+            android:theme="@style/ButtonLogin" />
+
+        <Button
+            android:id="@+id/la_bt_registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:elevation="@dimen/d3"
+            android:onClick="onClickRegistro"
+            android:text="@string/la_bt_registro"
+            android:theme="@style/ButtonRegistro" />
+    </RelativeLayout>
+
+</LinearLayout>

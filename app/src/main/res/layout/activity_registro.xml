@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="es.jujoru.examentestapp.ActivityRegistro">
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/TextViewPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ra_tv_registro"
+        android:layout_marginTop="@dimen/d32"
+        android:layout_marginBottom="@dimen/d32"
+        />
+
+
+
+    <EditText
+        android:id="@+id/ra_et_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+     style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:hint="@string/ra_et_usuario"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/ra_et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+     style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_email_24dp"
+        android:hint="@string/ra_et_email"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/ra_et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+     style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:hint="@string/ra_et_password"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/ra_et_password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+     style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:hint="@string/ra_et_password2"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/ra_et_dni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+     style="@style/EditTextFormulario"
+        android:drawableLeft="@drawable/ic_vpn_key_24dp"
+        android:hint="@string/ra_et_dni"
+        android:inputType="textPassword" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/ra_bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/ra_bt_registrarme"
+            android:theme="@style/ButtonLogin" />
+    </RelativeLayout>
+
+</LinearLayout>
