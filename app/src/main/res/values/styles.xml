@@ -15,11 +15,19 @@
         <item name="android:padding">@dimen/d15</item>
         <item name="android:textAlignment">center</item>
     </style>
+    <style name="TextViewSecundario">
+        <item name="android:textSize">@dimen/d20</item>
+        <item name="android:textColor">@color/green_800</item>
 
+
+        <item name="android:paddingEnd">@dimen/d25</item>
+    </style>
     <style name="ButtonLogin" parent="Theme.AppCompat">
         <item name="colorButtonNormal">@color/green_800</item>
         <item name="colorControlHighlight">@color/green_400</item>
     </style>
+
+
     <style name="ButtonRegistro" parent="Theme.AppCompat">
 
         <item name="colorButtonNormal">@color/pink_400</item>
@@ -30,5 +38,19 @@
     <style name="EditTextFormulario">
         <item name="android:backgroundTint">@color/green_800</item>
         <item name="android:layout_marginBottom">@dimen/d8</item>
+
     </style>
+    <style name="EditTextLabel">
+        <item name="colorAccent">@color/green_800</item>
+        <item name="colorControlNormal">@color/green_500</item>
+        <item name="colorControlActivated">@color/green_800</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

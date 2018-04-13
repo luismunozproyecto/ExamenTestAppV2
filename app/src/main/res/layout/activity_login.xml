@@ -60,7 +60,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:elevation="@dimen/d3"
-            android:onClick="onClickRegistro"
+            android:onClick="onClickIrRegistro"
             android:text="@string/la_bt_registro"
             android:theme="@style/ButtonRegistro" />
     </RelativeLayout>

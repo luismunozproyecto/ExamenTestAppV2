@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="@string/ra_bt_registrarme"
+            android:onClick="onClickRegistro"
             android:theme="@style/ButtonLogin" />
     </RelativeLayout>
 

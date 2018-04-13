@@ -3,6 +3,8 @@
     <string name="app_name">ExamenTestApp</string>
     <string name="ma_tv_nombre">ExamenTestApp</string>
     <string name="gen_campos_vacios">Debes de rellenar todos los campos</string>
+    <string name="gen_passwords_diferentes">Las contraseñas no coinciden</string>
+    <string name="gen_email_no_valido">El formato del email no es valido</string>
     <!--LOGIN ACTIVITY-->
     <string name="la_tv_login">Acceder al sistema</string>
     <string name="la_et_usuario">Usuario</string>
@@ -18,4 +20,38 @@
     <string name="ra_et_email">Email</string>
     <string name="ra_et_dni">DNI</string>
     <string name="ra_bt_registrarme">Registrarme</string>
+    <string name="title_activity_menu_principal">ActivityMenuPrincipal</string>
+
+    <!--NAVIGATION DRAWER-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!--NAVIGATION DRAWER MENU: PROFESOR-->
+    <string name="mndp_menu1">Gestion de examenes</string>
+    <string name="mndp_menu2">Activar examen</string>
+    <string name="mndp_menu3">Ver notas</string>
+    <string name="mndp_menu4">Ver perfil</string>
+    <string name="mndp_menu5">Cerrar Sesión</string>
+    <string name="mndp_separador">Gestión de usuario</string>
+
+    <!-- GESTION DE EXAMEN -->
+    <string name="ge_titulo">Gestión de examenes</string>
+
+    <!-- ACTIVAR EXAMEN -->
+    <string name="ae_titulo">Activar examenes</string>
+
+    <!-- VER NOTAS -->
+    <string name="vn_titulo">Ver notas</string>
+    <string name="title_activity_perfil">Perfil</string>
+
+    <!-- PERFIL -->
+    <string name="pf_titulo">Editar perfil</string>
+    <string name="pf_et_usuario">Editar usuario</string>
+    <string name="pf_et_password">Editar contraseña</string>
+    <string name="pf_et_password2">Nueva contraseña</string>
+    <string name="pf_et_email">Editar email</string>
+    <string name="pf_et_dni">Editar DNI</string>
+
 </resources>

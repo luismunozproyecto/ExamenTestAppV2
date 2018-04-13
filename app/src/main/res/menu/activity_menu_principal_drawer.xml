@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_gestion_examen"
+            android:icon="@drawable/ic_event_note_24dp"
+
+            android:title="@string/mndp_menu1" />
+        <item
+            android:id="@+id/nav_activar_examen"
+            android:icon="@drawable/ic_playlist_add_check_24dp"
+
+            android:title="@string/mndp_menu2" />
+        <item
+            android:id="@+id/nav_ver_notas"
+            android:icon="@drawable/ic_format_list_numbered_24dp"
+
+            android:title="@string/mndp_menu3" />
+
+    </group>
+
+    <item android:title="@string/mndp_separador">
+        <menu>
+            <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="@string/mndp_menu4" />
+            <item
+                android:id="@+id/nav_cerrar_sesion"
+                android:icon="@drawable/ic_close_24dp"
+                android:title="@string/mndp_menu5" />
+        </menu>
+    </item>
+
+</menu>

@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import Controladores.ControladorLoginRegistro;
 
 public class ActivityLogin extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     }
 
-    public void onClickRegistro(View view){
+    public void onClickIrRegistro(View view){
         Intent i=new Intent(getApplicationContext(), ActivityRegistro.class);
         startActivity(i);
     }
@@ -45,7 +46,9 @@ public class ActivityLogin extends AppCompatActivity {
         if(ControladorLoginRegistro.esVacio(valores)){
             Snackbar.make(view, R.string.gen_campos_vacios, Snackbar.LENGTH_LONG).show();
         }else{
-            Snackbar.make(view, "genial", Snackbar.LENGTH_LONG).show();
+            Intent i=new Intent(getApplicationContext(), ActivityMenuPrincipal.class);
+            startActivity(i);
+            finish();
         }
     }
 }

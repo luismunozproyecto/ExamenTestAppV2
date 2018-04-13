@@ -19,7 +19,20 @@
         <activity
             android:name=".ActivityLogin"
             android:screenOrientation="portrait" />
-        <activity android:name=".ActivityRegistro"></activity>
+        <activity android:name=".ActivityRegistro" />
+        <activity
+            android:name=".ActivityMenuPrincipal"
+            android:label="@string/title_activity_menu_principal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivityPerfil"
+            android:label="@string/title_activity_perfil"
+            android:parentActivityName=".ActivityMenuPrincipal"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.jujoru.examentestapp.ActivityMenuPrincipal" />
+        </activity>
     </application>
 
 </manifest>
