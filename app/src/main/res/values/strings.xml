@@ -35,14 +35,45 @@
     <string name="mndp_menu4">Ver perfil</string>
     <string name="mndp_menu5">Cerrar Sesión</string>
     <string name="mndp_separador">Gestión de usuario</string>
+    <!--TAB-->
+    <string name="title_activity_gestion_examen">Gestion de examen</string>
+    <string name="tab_text_1">Informacion</string>
+    <string name="tab_text_2">Configuracion</string>
+    <string name="tab_text_3">Test</string>
 
-    <!-- GESTION DE EXAMEN -->
+    <!--FRAGMENT: INFORMACION EXAMEN -->
+
+    <string name="ie_titulo">Informacion</string>
+    <string name="ie_tema">Tema: </string>
+    <string name="ie_asignatura">Asignatura: </string>
+    <string name="ie_fecha">Fecha: </string>
+    <string name="ie_hora">Hora: </string>
+    <string name="ie_fecha_activacion">Fecha activacion: </string>
+    <string name="ie_hora_activacion">Hora activacion: </string>
+    <string name="ie_argumentario">Argumentario:</string>
+
+    <!--FRAGMENT: CONFIGURACION EXAMEN -->
+
+    <string name="ce_titulo">Configuracion</string>
+    <string name="ce_duracion">Duracion: </string>
+    <string name="ce_tiempo_limite">Tiempo limite: </string>
+    <string name="ce_numero_preguntas">Número de preguntas: </string>
+    <string name="ce_valor_blanco">Valor no contestada: </string>
+    <string name="ce_valor_acierto">Valor del acierto: </string>
+    <string name="ce_valor_fallo">Valor del fallo: </string>
+    <string name="ce_nota_corte">Nota de corte: </string>
+    <!--FRAGMENT: TEST EXAMEN -->
+
+    <string name="te_titulo">Preguntas</string>
+    <string name="te_mensaje_alert">¿Que deseas hacer?</string>
+
+    <!-- FRAGMENT: GESTION DE EXAMEN -->
     <string name="ge_titulo">Gestión de examenes</string>
 
-    <!-- ACTIVAR EXAMEN -->
+    <!-- FRAGMENT: ACTIVAR EXAMEN -->
     <string name="ae_titulo">Activar examenes</string>
 
-    <!-- VER NOTAS -->
+    <!-- FRAGMENT: VER NOTAS -->
     <string name="vn_titulo">Ver notas</string>
     <string name="title_activity_perfil">Perfil</string>
 
@@ -53,5 +84,28 @@
     <string name="pf_et_password2">Nueva contraseña</string>
     <string name="pf_et_email">Editar email</string>
     <string name="pf_et_dni">Editar DNI</string>
+
+
+    <!-- ACTIVITY EDITAR INFO EXAMEN -->
+    <string name="aeie_et_nombre">Nombre</string>
+    <string name="aeie_et_asignatura">Asignatura</string>
+    <string name="aeie_et_tema">Tema</string>
+    <string name="aeie_et_fecha">Fecha</string>
+    <string name="aeie_et_hora">Hora</string>
+    <string name="aeie_et_fecha_activacion">Fecha activacion</string>
+    <string name="aeie_et_hora_activacion">Hora activacion</string>
+    <string name="aeie_et_argumentario">Argumentario</string>
+    <string name="title_activity_editar_informacion_examen">Editar informacion examen</string>
+
+
+    <!-- ACTIVITY EDITAR CONFIGURACION EXAMEN -->
+    <string name="aece_et_duracion">Duracion</string>
+    <string name="aece_tv_limite_tiempo">Limite de tiempo: </string>
+    <string name="aece_et_numero_preguntas">Numero de preguntas</string>
+    <string name="aece_et_valor_blanco">Valor no contestar</string>
+    <string name="aece_et_valor_acierto">Valor Acierto</string>
+    <string name="aece_et_valor_fallo">Valor fallo</string>
+    <string name="aece_et_nota_corte">Nota corte</string>
+    <string name="title_activity_editar_configuracion_examen">Editar configuracion examen</string>
 
 </resources>

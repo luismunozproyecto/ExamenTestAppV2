@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:showIn="@layout/activity_editar_informacion_examen"
+tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:padding="@dimen/d0">
+
+    <ImageView
+        android:id="@+id/eie_iv_cabecera"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/d150"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_fondo"
+        />
+
+    <TextView
+        android:id="@+id/ic_titulo"
+        style="@style/TextViewCabecera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/d32"
+        android:layout_marginStart="@dimen/d16"
+        android:text="NOMBRE ASIGNATURA" />
+
+</RelativeLayout>
+
+<ScrollView
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/d12"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/TextViewSecundario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/d16"
+            android:layout_marginTop="@dimen/d16"
+            android:text="@string/title_activity_editar_configuracion_examen"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eie_iv_cabecera" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_nombre"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_nombre"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_nombre"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_asignatura"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_asignatura"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_asignatura"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_aeie_et_tema"
+                android:theme="@style/EditTextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+            android:id="@+id/aeie_et_tema"
+            style="@style/EditTextFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_hat"
+            android:ems="10"
+            android:hint="@string/aeie_et_tema"
+            android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_fecha"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_fecha"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_fecha"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_hora"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_hora"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_hora"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_fecha_activacion"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_fecha_activacion"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_fecha_activacion"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_argumentario"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_argumentario"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_argumentario"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>
+

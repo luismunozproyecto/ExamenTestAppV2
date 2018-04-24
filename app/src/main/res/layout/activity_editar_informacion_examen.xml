@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.jujoru.examentestapp.ActivityMenuPrincipal">
+    tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,8 +20,15 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_activity_menu_principal" />
+    <include layout="@layout/content_activity_editar_informacion_examen" />
 
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/orange_500"
+        app:srcCompat="@drawable/ic_save" />
 
 </android.support.design.widget.CoordinatorLayout>
