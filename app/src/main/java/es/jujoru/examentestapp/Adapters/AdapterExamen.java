@@ -11,9 +11,7 @@ import Clases.Examen;
 import es.jujoru.examentestapp.R;
 import es.jujoru.examentestapp.ViewHolders.ViewHolderExamen;
 
-/**
- * Created by Nino Ruano on 17/04/2018.
- */
+
 
 public class AdapterExamen extends RecyclerView.Adapter<ViewHolderExamen>
         implements View.OnClickListener {
