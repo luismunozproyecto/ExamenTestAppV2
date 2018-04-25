@@ -1,22 +1,22 @@
-package es.jujoru.examentestapp;
+package es.jujoru.examentestapp.Fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import es.jujoru.examentestapp.ActivityEditarInformacionExamen;
+import es.jujoru.examentestapp.R;
 
-import Clases.Examen;
+/**
+ * Created by Nino Ruano on 18/04/2018.
+ */
 
-
-public class FragmentGestionExamen extends Fragment {
+public class FragmentInformacionExamen extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,10 +25,9 @@ public class FragmentGestionExamen extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    ArrayList<Examen> examenes = new ArrayList<>();
-    RecyclerView rvExamen;
 
-    public FragmentGestionExamen() {
+
+    public FragmentInformacionExamen() {
         // Required empty public constructor
     }
 
@@ -41,8 +40,8 @@ public class FragmentGestionExamen extends Fragment {
      * @return A new instance of fragment FragmentGestionExamen.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentGestionExamen newInstance(String param1, String param2) {
-        FragmentGestionExamen fragment = new FragmentGestionExamen();
+    public static FragmentInformacionExamen newInstance(String param1, String param2) {
+        FragmentInformacionExamen fragment = new FragmentInformacionExamen();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,41 +62,29 @@ public class FragmentGestionExamen extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_gestion_examen, container, false);
-        rvExamen = (RecyclerView)view.findViewById(R.id.rvExamen);
-        examenes.add(new Examen("Examen 1","2018-01-01","Asignatura 1"));
-        examenes.add(new Examen("Examen 2","2018-02-01","Asignatura 2"));
-        examenes.add(new Examen("Examen 3","2018-03-01","Asignatura 3"));
+        View view = inflater.inflate(R.layout.fragment_informacion_examen, container, false);
 
-        rvExamen.setHasFixedSize(true);
-        rvExamen.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        AdapterExamen adapter = new AdapterExamen(examenes);
-        adapter.setOnClickListener(new View.OnClickListener() {
+        TextView tvIcTitulo = (TextView)view.findViewById(R.id.ic_titulo);
+        TextView tvIcAsignatura = (TextView)view.findViewById(R.id.ie_tv_asignatura);
+        TextView tvIcTema = (TextView)view.findViewById(R.id.ie_tv_tema);
+        TextView tvIcFecha = (TextView)view.findViewById(R.id.ie_tv_fecha);
+        TextView tvIcHora = (TextView)view.findViewById(R.id.ie_tv_hora);
+        TextView tvIcFechaActivacion = (TextView)view.findViewById(R.id.ie_tv_fecha_activacion);
+        TextView tvIcHoraActivacion = (TextView)view.findViewById(R.id.ie_tv_hora_activacion);
+        TextView tvIcArguemntario = (TextView)view.findViewById(R.id.ie_tv_argumentario);
+        FloatingActionButton fab = (FloatingActionButton)view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
-                Examen ex = obtenerExamen(rvExamen.getChildAdapterPosition(v));
-                Intent i =new Intent(getContext(), ActivityGestionExamen.class);
-                startActivity(i);
+                    Intent i=new Intent(getActivity(), ActivityEditarInformacionExamen.class);
+                    startActivity(i);
+
             }
         });
-        rvExamen.setAdapter(adapter);
-
 
         return view;
 
     }
-
-    private Examen obtenerExamen(int position){
-        return examenes.get(position);
-    }
-
-
-
-
-
-
-
 
 }

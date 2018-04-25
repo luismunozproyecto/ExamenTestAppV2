@@ -1,4 +1,4 @@
-package es.jujoru.examentestapp;
+package es.jujoru.examentestapp.ViewHolders;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import Clases.Examen;
+import es.jujoru.examentestapp.R;
 
 /**
  * Created by Nino Ruano on 17/04/2018.

@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -15,9 +14,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import es.jujoru.examentestapp.Fragments.FragmentActivarExamen;
+import es.jujoru.examentestapp.Fragments.FragmentGestionExamen;
+import es.jujoru.examentestapp.Fragments.FragmentVerNotas;
 
 public class ActivityMenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

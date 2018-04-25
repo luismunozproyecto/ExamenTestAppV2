@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="es.jujoru.examentestapp.FragmentConfiguracionExamen">
+    tools:context="es.jujoru.examentestapp.Fragments.FragmentConfiguracionExamen">
 
 
     <RelativeLayout

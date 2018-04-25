@@ -1,4 +1,4 @@
-package es.jujoru.examentestapp;
+package es.jujoru.examentestapp.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import es.jujoru.examentestapp.ActivityEditarConfiguracionExamen;
+import es.jujoru.examentestapp.R;
 
 
 public class FragmentConfiguracionExamen extends Fragment {
