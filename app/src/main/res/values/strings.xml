@@ -1,10 +1,12 @@
 <resources>
+
     <!-- GENERAL -->
     <string name="app_name">ExamenTestApp</string>
     <string name="ma_tv_nombre">ExamenTestApp</string>
     <string name="gen_campos_vacios">Debes de rellenar todos los campos</string>
     <string name="gen_passwords_diferentes">Las contraseñas no coinciden</string>
     <string name="gen_email_no_valido">El formato del email no es valido</string>
+    <string name="btn_editar">Editar</string>
     <!--LOGIN ACTIVITY-->
     <string name="la_tv_login">Acceder al sistema</string>
     <string name="la_et_usuario">Usuario</string>
@@ -35,6 +37,11 @@
     <string name="mndp_menu4">Ver perfil</string>
     <string name="mndp_menu5">Cerrar Sesión</string>
     <string name="mndp_separador">Gestión de usuario</string>
+
+    <!--NAVIGATION DRAWER MENU: ALUMNO-->
+    <string name="mnda_menu1">Activar examen</string>
+    <string name="mnda_menu2">Mis examenes</string>
+
     <!--TAB-->
     <string name="title_activity_gestion_examen">Gestion de examen</string>
     <string name="tab_text_1">Informacion</string>
@@ -50,7 +57,7 @@
     <string name="ie_hora">Hora: </string>
     <string name="ie_fecha_activacion">Fecha activacion: </string>
     <string name="ie_hora_activacion">Hora activacion: </string>
-    <string name="ie_argumentario">Argumentario:</string>
+    <string name="ie_argumentario">Argumentario: Prueba prueba Prueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba pruebaPrueba prueba</string>
 
     <!--FRAGMENT: CONFIGURACION EXAMEN -->
 
@@ -77,6 +84,18 @@
     <string name="vn_titulo">Ver notas</string>
     <string name="title_activity_perfil">Perfil</string>
 
+    <!-- ACITIVTY VER PREGUNTAS -->
+    <string name="avp_titulo">VER PREGUNTA</string>
+    <!-- ACITIVTY EDITAR PREGUNTAS -->
+    <string name="aep_titulo">Editar preguntas</string>
+    <string name="aep_et_pregunta">Pregunta</string>
+    <string name="aep_et_res3">Respuesta 3:</string>
+    <string name="aep_et_res2">Respuesta 2:</string>
+    <string name="aep_et_res1">Respuesta 1:</string>
+    <string name="aep_rb_res1">Respuesta 1</string>
+    <string name="aep_rb_res2">Respuesta 2</string>
+    <string name="aep_rb_res3">Respuesta 3</string>
+    <string name="aep_tv_respuestas">Respuesta Correcta:</string>
     <!-- PERFIL -->
     <string name="pf_titulo">Editar perfil</string>
     <string name="pf_et_usuario">Editar usuario</string>
@@ -97,6 +116,18 @@
     <string name="aeie_et_argumentario">Argumentario</string>
     <string name="title_activity_editar_informacion_examen">Editar informacion examen</string>
 
+    <!-- ACTIVITY NUEVO INFO EXAMEN -->
+    <string name="anei_et_nombre">Nombre</string>
+    <string name="anei_et_asignatura">Asignatura</string>
+    <string name="anei_et_tema">Tema</string>
+    <string name="anei_et_fecha">Fecha</string>
+    <string name="anei_et_hora">Hora</string>
+    <string name="anei_et_fecha_activacion">Fecha activacion</string>
+    <string name="anei_et_hora_activacion">Hora activacion</string>
+    <string name="anei_et_argumentario">Argumentario</string>
+    <string name="anei_titulo">NUEVO EXAMEN</string>
+    <string name="title_activity_activitiy_nuevo_examen_informacion">NUEVO EXAMEN</string>
+    <string name="anei_cabecera">INFORMACION</string>
 
     <!-- ACTIVITY EDITAR CONFIGURACION EXAMEN -->
     <string name="aece_et_duracion">Duracion</string>
@@ -107,5 +138,56 @@
     <string name="aece_et_valor_fallo">Valor fallo</string>
     <string name="aece_et_nota_corte">Nota corte</string>
     <string name="title_activity_editar_configuracion_examen">Editar configuracion examen</string>
+    <string name="title_activity_ver_pregunta">Ver pregunta</string>
+    <string name="title_activity_editar_pregunta">Editar Pregunta</string>
 
+    <!-- ACTIVITIY NUEVO CONFIG EXAMEN -->
+    <string name="anec_et_duracion">Duracion</string>
+    <string name="anec_tv_limite_tiempo">Limite de tiempo: </string>
+    <string name="anec_et_numero_preguntas">Numero de preguntas</string>
+    <string name="anec_et_valor_blanco">Valor no contestar</string>
+    <string name="anec_et_valor_acierto">Valor Acierto</string>
+    <string name="anec_et_valor_fallo">Valor fallo</string>
+    <string name="anec_et_nota_corte">Nota corte</string>
+    <string name="anec_titulo">NUEVO EXAMEN</string>
+    <string name="title_activity_nuevo_examen_configuracion">NUEVO EXAMEN</string>
+    <string name="anec_cabecera">CONFIGURACION</string>
+
+
+    <!-- ACTIVITIY NUEVO preguntas EXAMEN -->
+    <string name="anep_btn_guardar">Guardar Examen</string>
+    <string name="nep_titulo">Editar preguntas</string>
+    <string name="nep_et_pregunta">Pregunta</string>
+    <string name="nep_et_res3">Respuesta 3:</string>
+    <string name="nep_et_res2">Respuesta 2:</string>
+    <string name="nep_et_res1">Respuesta 1:</string>
+    <string name="nep_rb_res1">Respuesta 1</string>
+    <string name="nep_rb_res2">Respuesta 2</string>
+    <string name="nep_rb_res3">Respuesta 3</string>
+    <string name="nep_tv_respuestas">Respuesta Correcta:</string>
+    <string name="title_activity_nuevo_examen_preguntas">NUEVO EXAMEN</string>
+    <string name="nep_cabecera">PREGUNTAS</string>
+    <string name="title_activity_ver_notas">ActivityVerNotas</string>
+
+    <!--  ================= ALUMNOS =========================== -->
+
+
+    <!-- FRAGMENT ACTIVAR EXAMEN ALUMNO -->
+    <string name="faae_titulo">ACTIVAR EXAMEN</string>
+    <string name="faae_et_codigo">Introduce tu código</string>
+    <string name="faae_btn_activar">ACTIVAR</string>
+
+
+    <!-- FRAGMENT MIS EXAMENES  -->
+    <string name="fame_titulo">Mis examenes</string>
+    <string name="title_activity_alumno_examen">Examen</string>
+    <string name="title_activity_alumno_pregunta">Preguntas</string>
+
+
+
+    <!-- FRAGMENT preguntasA -->
+    <string name="aae_titulo">Preguntas</string>
+    <string name="aae_btn_res1">Opcion 1</string>
+    <string name="aae_btn_res2">Opcion 2</string>
+    <string name="aae_btn_res3">Opcion 3</string>
 </resources>

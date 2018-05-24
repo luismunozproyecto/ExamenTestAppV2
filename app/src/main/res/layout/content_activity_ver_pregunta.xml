@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:showIn="@layout/activity_ver_pregunta"
+tools:context="es.jujoru.examentestapp.ActivityVerPregunta">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_marginTop="@dimen/d48"
+    android:padding="@dimen/d0">
+
+    <ImageView
+        android:id="@+id/ece_iv_cabecera"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/d150"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_fondo"
+        />
+
+    <TextView
+        android:id="@+id/ic_titulo"
+        style="@style/TextViewCabecera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/d32"
+        android:layout_marginStart="@dimen/d16"
+        android:text="@string/avp_titulo" />
+
+</RelativeLayout>
+
+<ScrollView
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/d12"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/avp_pregunta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d15"
+            style="@style/TextViewSecundario"
+            android:text="Pregunta"
+            />
+
+        <TextView
+            android:id="@+id/avp_res1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d15"
+            android:text="res1"
+            android:textSize="@dimen/d14" />
+        <TextView
+            android:id="@+id/avp_res2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d15"
+            android:text="res2"
+            android:textSize="@dimen/d14" />
+        <TextView
+            android:id="@+id/avp_res3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d15"
+            android:text="res3"
+            android:textSize="@dimen/d14" />
+
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>
+

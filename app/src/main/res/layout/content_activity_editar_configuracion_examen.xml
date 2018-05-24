@@ -11,7 +11,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/d150"
+        android:layout_marginTop="@dimen/d48"
         android:padding="@dimen/d0">
 
         <ImageView
@@ -26,7 +27,7 @@
             />
 
         <TextView
-            android:id="@+id/ic_titulo"
+            android:id="@+id/aece_titulo"
             style="@style/TextViewCabecera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,11 +76,11 @@
                     android:text="@string/aece_tv_limite_tiempo" />
 
                 <Switch
-                    android:id="@+id/switch1"
+                    android:id="@+id/aece_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Switch" />
+                     />
 
             </LinearLayout>
             <android.support.design.widget.TextInputLayout

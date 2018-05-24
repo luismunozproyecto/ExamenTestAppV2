@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_editar_pregunta"
+    tools:context="es.jujoru.examentestapp.ActivityEditarPregunta">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="@dimen/d48"
+        android:padding="@dimen/d0">
+
+        <ImageView
+            android:id="@+id/aep_iv_cabecera"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/d150"
+            android:adjustViewBounds="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/item_fondo"
+            />
+
+        <TextView
+            android:id="@+id/aep_ic_titulo"
+            style="@style/TextViewCabecera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/d32"
+            android:layout_marginStart="@dimen/d16"
+            android:text="NOMBRE ASIGNATURA" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/d12"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/aep_tv_subitulo"
+                style="@style/TextViewSecundario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d16"
+                android:text="@string/aep_titulo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eie_iv_cabecera" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_aep_et_pregunta"
+                android:theme="@style/EditTextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/aep_et_pregunta"
+                    style="@style/EditTextFormulario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_pregunta"
+                    android:ems="10"
+                    android:hint="@string/aep_et_pregunta"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_aep_et_res1"
+                android:theme="@style/EditTextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/aep_et_res1"
+                    style="@style/EditTextFormulario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_playlist_add_check_24dp"
+                    android:ems="10"
+                    android:hint="@string/aep_et_res1"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_aep_et_res2"
+                android:theme="@style/EditTextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/aep_et_res2"
+                    style="@style/EditTextFormulario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_playlist_add_check_24dp"
+                    android:ems="10"
+                    android:hint="@string/aep_et_res2"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_aep_et_res3"
+                android:theme="@style/EditTextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/aep_et_res3"
+                    style="@style/EditTextFormulario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_playlist_add_check_24dp"
+                    android:ems="10"
+                    android:hint="@string/aep_et_res3"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextViewSecundario"
+                android:layout_marginBottom="@dimen/d16"
+                android:text="@string/aep_tv_respuestas" />
+
+            <RadioGroup
+                android:id="@+id/aep_rg"
+                android:orientation="vertical"
+                    android:layout_width="match_parent"
+
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewLabel"
+                    android:layout_weight="1"
+                    android:text="@string/aep_rb_res1" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    style="@style/TextViewLabel"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/aep_rb_res2" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewLabel"
+                    android:layout_weight="1"
+                    android:text="@string/aep_rb_res3" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

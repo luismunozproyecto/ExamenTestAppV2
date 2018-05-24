@@ -38,6 +38,7 @@
     <dimen name='d35'>35dp</dimen>
     <dimen name='d40'>40dp</dimen>
     <dimen name='d45'>45dp</dimen>
+    <dimen name='d48'>48dp</dimen>
     <dimen name='d50'>50dp</dimen>
     <dimen name='d55'>55dp</dimen>
     <dimen name='d60'>60dp</dimen>

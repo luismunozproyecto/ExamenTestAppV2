@@ -16,17 +16,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import Clases.Usuario;
 import es.jujoru.examentestapp.Fragments.FragmentActivarExamen;
+import es.jujoru.examentestapp.Fragments.FragmentAlumnoActivarExamen;
+import es.jujoru.examentestapp.Fragments.FragmentAlumnoMisExamenes;
 import es.jujoru.examentestapp.Fragments.FragmentGestionExamen;
 import es.jujoru.examentestapp.Fragments.FragmentVerNotas;
 
 public class ActivityMenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    Usuario u =null;
+    int esAlumno=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+
+        Bundle b= getIntent().getExtras();
+        if(b!=null){
+           u = b.getParcelable(ActivityLogin.EXTRA_USUARIO);
+           esAlumno = u.getEs_profesor();
+        }
+
+        if(esAlumno == 1){
+            setContentView(R.layout.activity_menu_principal_alumno);
+        }else{
+            setContentView(R.layout.activity_menu_principal);
+        }
+        //setContentView(R.layout.activity_menu_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -34,9 +50,14 @@ public class ActivityMenuPrincipal extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getApplicationContext(), ActivityNuevoExamenInformacion.class);
+                startActivity(i);
             }
         });
+
+        if(esAlumno == 1){
+            fab.setVisibility(View.INVISIBLE);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -97,8 +118,13 @@ public class ActivityMenuPrincipal extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), ActivityLogin.class);
             startActivity(i);
             finish();
+        }else if(id ==R.id.nav_activar_examen_alumno){
+            fragment = new FragmentAlumnoActivarExamen();
+            titulo = getString(R.string.faae_titulo);
+        }else if(id ==R.id.nav_mis_examenes){
+            fragment = new FragmentAlumnoMisExamenes();
+            titulo = getString(R.string.faae_titulo);
         }
-
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);

@@ -11,11 +11,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Clases.Usuario;
 import Controladores.ControladorLoginRegistro;
 
 public class ActivityLogin extends AppCompatActivity {
 
+    static final String EXTRA_USUARIO = "USUARIO";
     EditText etUsuario, etPassword;
+    Usuario u=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,11 @@ public class ActivityLogin extends AppCompatActivity {
         if(ControladorLoginRegistro.esVacio(valores)){
             Snackbar.make(view, R.string.gen_campos_vacios, Snackbar.LENGTH_LONG).show();
         }else{
+              u = new Usuario("luis", "luis@gmail.com", "luis", "123123", "avatar",0);
+            //  u = new Usuario("profesor", "profesor@gmail.com", "profesor", "123123", "avatar",1);
+
             Intent i=new Intent(getApplicationContext(), ActivityMenuPrincipal.class);
+            i.putExtra(EXTRA_USUARIO, u);
             startActivity(i);
             finish();
         }

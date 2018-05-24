@@ -1,9 +1,11 @@
 package es.jujoru.examentestapp.Fragments;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,40 +15,37 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+import Clases.Examen;
 import Clases.Pregunta;
+import es.jujoru.examentestapp.ActivityEditarPregunta;
+import es.jujoru.examentestapp.ActivityVerPregunta;
 import es.jujoru.examentestapp.R;
 
 
 public class FragmentTestExamen extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public static final String EXTRA_PARAM1 = "EXAMEN";
+    public static final String EXTRA_PARAM2 = "PREGUNTA";
+    private static final String ARG_PARAM1 = "EXAMEN";
+    private Examen examen;
+    String preguntaSeleccionada;
+    Pregunta p;
 
     ListView lvPreguntas;
+    List<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
     public FragmentTestExamen() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentGestionExamen.
-     */
+
     // TODO: Rename and change types and number of parameters
-    public static FragmentTestExamen newInstance(String param1, String param2) {
+    public static FragmentTestExamen newInstance(Examen examen) {
         FragmentTestExamen fragment = new FragmentTestExamen();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable(ARG_PARAM1, examen);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,8 +55,9 @@ public class FragmentTestExamen extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            examen = getArguments().getParcelable(ARG_PARAM1);
+            listaPreguntas = examen.getPreguntas();
+
         }
     }
     /*
@@ -94,26 +94,17 @@ public class FragmentTestExamen extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_test_examen, container, false);
         lvPreguntas = (ListView)view.findViewById(R.id.te_lv_preguntas);
+        obtenerPreguntas();
 
 
-        String[] datos =
-                new String[]{"Elem1","Elem2","Elem3","Elem4","Elem5"};
-        ArrayAdapter<String> adaptador =
-                new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_list_item_1, datos);
+        //String[] datos = obtenerPreguntas();
 
-        lvPreguntas.setAdapter(adaptador);
-        lvPreguntas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mostrarOpciones();
-            }
-        });
         return view;
 
 
 
     }
+
     private void mostrarOpciones(){
 
         final String[] items = {"Eliminar", "Ver", "Editar"};
@@ -130,6 +121,31 @@ public class FragmentTestExamen extends Fragment {
         alert.show();
     }
 
+    private void obtenerPreguntas (){
+        String[] preguntas = new String[listaPreguntas.size()];
+
+        for (int i=0; i<preguntas.length; i++){
+
+                preguntas[i] = listaPreguntas.get(i).getPregunta();
+
+
+        }
+
+        ArrayAdapter<String> adaptador =
+                new ArrayAdapter<String>(getContext(),
+                        android.R.layout.simple_list_item_1, preguntas);
+
+        lvPreguntas.setAdapter(adaptador);
+        lvPreguntas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                  preguntaSeleccionada = parent.getItemAtPosition(position).toString();
+                  p = listaPreguntas.get(position);
+                mostrarOpciones();
+            }
+        });
+       // return preguntas;
+    }
     private void mostrarMenuPregunta(String opcion) {
 
 
@@ -152,26 +168,22 @@ public class FragmentTestExamen extends Fragment {
                 alert.show();
             break;
             case "Ver":
-                Toast.makeText(getContext(), "Ver",Toast.LENGTH_LONG).show();
+
+                Intent iv = new Intent(getActivity(), ActivityVerPregunta.class );
+                iv.putExtra(EXTRA_PARAM2,p);
+                startActivity(iv);
             break;
             case "Editar":
-                Toast.makeText(getContext(), "Editar",Toast.LENGTH_LONG).show();
+                Intent ie = new Intent(getActivity(), ActivityEditarPregunta.class );
+                startActivity(ie);
             break;
 
         }
 
     }
-    private ArrayList<Pregunta> testPreguntas(){
 
-        ArrayList<Pregunta> preguntas = new ArrayList<>();
 
-        preguntas.add(new Pregunta(1,"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",null,""));
-        preguntas.add(new Pregunta(2,"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",null,""));
-        preguntas.add(new Pregunta(3,"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",null,""));
-        preguntas.add(new Pregunta(4,"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",null,""));
-        preguntas.add(new Pregunta(5,"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",null,""));
-        preguntas.add(new Pregunta(6,"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",null,""));
 
-        return preguntas;
-    }
+
+
 }

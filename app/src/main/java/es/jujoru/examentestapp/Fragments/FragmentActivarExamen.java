@@ -1,11 +1,22 @@
 package es.jujoru.examentestapp.Fragments;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import Clases.Examen;
+import es.jujoru.examentestapp.ActivityGestionExamen;
+import es.jujoru.examentestapp.ActivityMenuPrincipal;
+import es.jujoru.examentestapp.Adapters.AdapterExamen;
 import es.jujoru.examentestapp.R;
 
 /**
@@ -22,6 +33,8 @@ public class FragmentActivarExamen extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    ArrayList<Examen> examenes = new ArrayList<>();
+    RecyclerView rvExamen;
 
     public FragmentActivarExamen() {
         // Required empty public constructor
@@ -57,10 +70,52 @@ public class FragmentActivarExamen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_activar_examen, container, false);
+
+        View view=inflater.inflate(R.layout.fragment_activar_examen, container, false);
+        rvExamen = (RecyclerView)view.findViewById(R.id.fae_rvExamen);
+
+
+        rvExamen.setHasFixedSize(true);
+        rvExamen.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        AdapterExamen adapter = new AdapterExamen(examenes);
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Examen ex = obtenerExamen(rvExamen.getChildAdapterPosition(v));
+                String mensaje = "";
+                if(ex.getActivo()==0){
+                    mensaje =" activar ";
+                }else{
+                    mensaje =" desactivar ";
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("¿Deseas "+mensaje+" el examen?")
+                        .setCancelable(false)
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+        rvExamen.setAdapter(adapter);
+
+
+        return view;
     }
 
+    private Examen obtenerExamen(int position){
+        return examenes.get(position);
+    }
 
 
 

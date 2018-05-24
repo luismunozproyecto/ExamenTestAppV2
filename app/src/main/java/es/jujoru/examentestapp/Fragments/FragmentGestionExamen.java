@@ -5,9 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -18,12 +25,16 @@ import es.jujoru.examentestapp.R;
 
 
 public class FragmentGestionExamen extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+    public static final String EXTRA_EXAMEN = "EXAMEN";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    //FIREBASE
+    public FirebaseDatabase firebaseDatabase;
+    public DatabaseReference databaseReference;
+    public ValueEventListener valueEventListener;
+
     private String mParam1;
     private String mParam2;
     ArrayList<Examen> examenes = new ArrayList<>();
@@ -66,12 +77,57 @@ public class FragmentGestionExamen extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_gestion_examen, container, false);
         rvExamen = (RecyclerView)view.findViewById(R.id.rvExamen);
-        examenes.add(new Examen("Examen 1","2018-01-01","Asignatura 1"));
-        examenes.add(new Examen("Examen 2","2018-02-01","Asignatura 2"));
-        examenes.add(new Examen("Examen 3","2018-03-01","Asignatura 3"));
-
         rvExamen.setHasFixedSize(true);
         rvExamen.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+        cargarExamenesFireBase();
+
+        return view;
+
+    }
+
+    /*==================================
+
+            METODOS DE FIREBASE
+
+    ======================================
+     */
+
+    private void cargarExamenesFireBase(){
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("creator/examenes");
+
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot dataSnapshotExamenes: dataSnapshot.getChildren()) {
+
+                    Examen e = dataSnapshotExamenes.getValue(Examen.class);
+                    examenes.add(e);
+
+                }
+
+                examenes.clear();
+                for (DataSnapshot dataSnapshotExamenes: dataSnapshot.getChildren()) {
+                    cargarRecyclerViewExamen(dataSnapshotExamenes);
+                }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("ActivityParte2","DATABASE ERROR");
+            }
+        };
+        databaseReference.addValueEventListener(valueEventListener);
+
+
+    }
+
+    private void cargarRecyclerViewExamen (DataSnapshot dataSnapshot){
+
+        examenes.add(dataSnapshot.getValue(Examen.class));
 
         AdapterExamen adapter = new AdapterExamen(examenes);
         adapter.setOnClickListener(new View.OnClickListener() {
@@ -80,22 +136,18 @@ public class FragmentGestionExamen extends Fragment {
 
                 Examen ex = obtenerExamen(rvExamen.getChildAdapterPosition(v));
                 Intent i =new Intent(getContext(), ActivityGestionExamen.class);
+                i.putExtra(FragmentGestionExamen.EXTRA_EXAMEN, ex);
                 startActivity(i);
             }
         });
         rvExamen.setAdapter(adapter);
 
-
-        return view;
-
     }
+
 
     private Examen obtenerExamen(int position){
         return examenes.get(position);
     }
-
-
-
 
 
 

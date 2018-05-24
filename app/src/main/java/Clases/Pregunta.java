@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Nino Ruano on 17/04/2018.
@@ -11,15 +13,15 @@ import java.util.ArrayList;
 
 public class Pregunta implements Parcelable{
 
-    int id_examen;
+    String id_examen;
     String pregunta;
-    ArrayList<String> respuestas;
+    List<String> respuestas;
     String respuesta_correcta;
 
     public Pregunta() {
     }
 
-    public Pregunta(int id_examen, String pregunta, ArrayList<String> respuestas, String respuesta_correcta) {
+    public Pregunta(String id_examen, String pregunta, List<String> respuestas, String respuesta_correcta) {
         this.id_examen = id_examen;
         this.pregunta = pregunta;
         this.respuestas = respuestas;
@@ -27,7 +29,7 @@ public class Pregunta implements Parcelable{
     }
 
     protected Pregunta(Parcel in) {
-        id_examen = in.readInt();
+        id_examen = in.readString();
         pregunta = in.readString();
         respuestas = in.createStringArrayList();
         respuesta_correcta = in.readString();
@@ -45,11 +47,11 @@ public class Pregunta implements Parcelable{
         }
     };
 
-    public int getId_examen() {
+    public String getId_examen() {
         return id_examen;
     }
 
-    public void setId_examen(int id_examen) {
+    public void setId_examen(String id_examen) {
         this.id_examen = id_examen;
     }
 
@@ -61,11 +63,11 @@ public class Pregunta implements Parcelable{
         this.pregunta = pregunta;
     }
 
-    public ArrayList<String> getRespuestas() {
+    public  List<String> getRespuestas() {
         return respuestas;
     }
 
-    public void setRespuestas(ArrayList<String> respuestas) {
+    public void setRespuestas(List<String> respuestas) {
         this.respuestas = respuestas;
     }
 
@@ -84,7 +86,7 @@ public class Pregunta implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id_examen);
+        dest.writeString(id_examen);
         dest.writeString(pregunta);
         dest.writeStringList(respuestas);
         dest.writeString(respuesta_correcta);

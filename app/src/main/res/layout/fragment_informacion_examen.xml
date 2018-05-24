@@ -1,156 +1,169 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-    android:orientation="vertical"
-
-tools:context="es.jujoru.examentestapp.Fragments.FragmentInformacionExamen">
-
-
-<RelativeLayout
-android:layout_width="match_parent"
-android:layout_height="150dp"
-android:padding="@dimen/d0">
-
-<ImageView
-    android:id="@+id/fie_iv_cabecera"
-    android:layout_width="0dp"
-    android:layout_height="@dimen/d150"
-    android:adjustViewBounds="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentRight="true"
-    android:scaleType="fitXY"
-    android:src="@drawable/item_fondo"
-    />
-
-<TextView
-    android:id="@+id/ic_titulo"
-    style="@style/TextViewCabecera"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginBottom="@dimen/d32"
-    android:layout_marginStart="@dimen/d16"
-    android:text="NOMBRE ASIGNATURA" />
-
-</RelativeLayout>
-
-<ScrollView
-android:layout_width="match_parent"
-
-android:layout_height="match_parent">
 
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/TextViewSecundario"
+    tools:context="es.jujoru.examentestapp.Fragments.FragmentInformacionExamen">
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:padding="@dimen/d0">
+
+        <ImageView
+            android:id="@+id/fie_iv_cabecera"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/d150"
+            android:adjustViewBounds="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/item_fondo"
+            />
+
+        <TextView
+            android:id="@+id/ic_titulo"
+            style="@style/TextViewCabecera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/d32"
+            android:layout_marginStart="@dimen/d16"
+            android:text="NOMBRE ASIGNATURA" />
+
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/d16"
-        android:layout_marginTop="@dimen/d16"
-        android:text="@string/ie_titulo"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fie_iv_cabecera" />
+         >
+         <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/d16"
-        android:columnCount="2"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/d16">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <ImageView
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/TextViewSecundario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/d16"
+                    android:layout_marginTop="@dimen/d16"
+                    android:text="@string/ie_titulo"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fie_iv_cabecera" />
+
+                 <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/d16"
+                    android:columnCount="2"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/d16">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_asignatura"
+                        android:text="@string/ie_asignatura" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_tema"
+                        android:text="@string/ie_tema" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_fecha"
+                        android:text="@string/ie_fecha" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_hora"
+                        android:text="@string/ie_hora" />
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_fecha_activacion"
+                        android:text="@string/ie_fecha_activacion" />
+
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_hora_activacion"
+                        android:text="@string/ie_hora_activacion" />
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hat" />
+
+                    <TextView
+                        style="@style/TextViewInfoConfig"
+                        android:id="@+id/ie_tv_argumentario"
+                        android:text="@string/ie_argumentario" />
+
+                </GridLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+            <Button
+                android:id="@+id/fie_btn_editar"
+                android:theme="@style/ButtonRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="@string/btn_editar" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+        <!--<android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_asignatura"
-            android:text="@string/ie_asignatura" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_tema"
-            android:text="@string/ie_tema" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_fecha"
-            android:text="@string/ie_fecha" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_hora"
-            android:text="@string/ie_hora" />
-
-        <ImageView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_fecha_activacion"
-            android:text="@string/ie_fecha_activacion" />
-
-
-        <ImageView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_hora_activacion"
-            android:text="@string/ie_hora_activacion" />
-
-        <ImageView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_hat" />
-
-        <TextView
-            style="@style/TextViewInfoConfig"
-            android:id="@+id/ie_tv_argumentario"
-            android:text="@string/ie_argumentario" />
-
-    </GridLayout>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="@color/amber_500"
-        app:srcCompat="@drawable/ic_edit_24dp" />
-</LinearLayout>
-</ScrollView>
-
-</LinearLayout>
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="@color/amber_500"
+            app:srcCompat="@drawable/ic_edit_24dp" />  -->

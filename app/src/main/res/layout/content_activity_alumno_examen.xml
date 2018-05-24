@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context=".ActivityAlumnoExamen"
+tools:showIn="@layout/activity_alumno_examen">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d150"
+    android:padding="@dimen/d0">
+
+    <ImageView
+        android:id="@+id/fa_cabnecra"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/d150"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_fondo"
+        />
+
+    <TextView
+        android:id="@+id/ic_titulo"
+        style="@style/TextViewCabecera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/d32"
+        android:layout_marginStart="@dimen/d16"
+        android:text="NOMBRE EXAMEN" />
+
+</RelativeLayout>
+
+    <ListView
+        android:id="@+id/ale_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import Clases.Examen;
 import es.jujoru.examentestapp.ActivityEditarInformacionExamen;
 import es.jujoru.examentestapp.R;
 
@@ -19,32 +21,23 @@ import es.jujoru.examentestapp.R;
 public class FragmentInformacionExamen extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM1 = "EXAMEN";
+    public static final String EXTRA_PARAM1 = "EXAMEN";
+    private Examen examen;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
 
     public FragmentInformacionExamen() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentGestionExamen.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentInformacionExamen newInstance(String param1, String param2) {
+
+
+
+    public static FragmentInformacionExamen newInstance(Examen examen) {
         FragmentInformacionExamen fragment = new FragmentInformacionExamen();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable(ARG_PARAM1, examen);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,10 +46,10 @@ public class FragmentInformacionExamen extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            examen = getArguments().getParcelable(ARG_PARAM1);
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
@@ -65,14 +58,32 @@ public class FragmentInformacionExamen extends Fragment {
         View view = inflater.inflate(R.layout.fragment_informacion_examen, container, false);
 
         TextView tvIcTitulo = (TextView)view.findViewById(R.id.ic_titulo);
+        tvIcTitulo.setText(examen.getNombre());
         TextView tvIcAsignatura = (TextView)view.findViewById(R.id.ie_tv_asignatura);
+        tvIcAsignatura.setText(tvIcAsignatura.getText()+" "+examen.getAsignatura());
         TextView tvIcTema = (TextView)view.findViewById(R.id.ie_tv_tema);
+        tvIcTema.setText(tvIcTema.getText()+" "+examen.getTema());
         TextView tvIcFecha = (TextView)view.findViewById(R.id.ie_tv_fecha);
+        tvIcFecha.setText(tvIcFecha.getText()+" "+examen.getFecha());
         TextView tvIcHora = (TextView)view.findViewById(R.id.ie_tv_hora);
+        tvIcHora.setText(tvIcHora.getText()+" "+examen.getHora());
         TextView tvIcFechaActivacion = (TextView)view.findViewById(R.id.ie_tv_fecha_activacion);
+        tvIcFechaActivacion.setText(tvIcFechaActivacion.getText()+" "+examen.getFecha_activacion());
         TextView tvIcHoraActivacion = (TextView)view.findViewById(R.id.ie_tv_hora_activacion);
+        tvIcHoraActivacion.setText(tvIcHoraActivacion.getText()+" "+examen.getHora_activacion());
         TextView tvIcArguemntario = (TextView)view.findViewById(R.id.ie_tv_argumentario);
-        FloatingActionButton fab = (FloatingActionButton)view.findViewById(R.id.fab);
+        tvIcArguemntario.setText(tvIcArguemntario.getText()+" "+examen.getArgumentario());
+        Button btEditar =(Button)view.findViewById(R.id.fie_btn_editar);
+        btEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(), ActivityEditarInformacionExamen.class);
+                i.putExtra(EXTRA_PARAM1, examen);
+                startActivity(i);
+            }
+        });
+
+     /*   FloatingActionButton fab = (FloatingActionButton)view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +93,7 @@ public class FragmentInformacionExamen extends Fragment {
 
             }
         });
-
+*/
         return view;
 
     }

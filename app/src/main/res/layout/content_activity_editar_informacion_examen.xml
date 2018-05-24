@@ -11,7 +11,8 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="@dimen/d150"
+    android:layout_marginTop="@dimen/d48"
     android:padding="@dimen/d0">
 
     <ImageView
@@ -26,7 +27,7 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
         />
 
     <TextView
-        android:id="@+id/ic_titulo"
+        android:id="@+id/eie_titulo"
         style="@style/TextViewCabecera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -152,6 +153,22 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
                 android:drawableLeft="@drawable/ic_hat"
                 android:ems="10"
                 android:hint="@string/aeie_et_fecha_activacion"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_aeie_et_hora_activacion"
+            android:theme="@style/EditTextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/aeie_et_hora_activacion"
+                style="@style/EditTextFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hat"
+                android:ems="10"
+                android:hint="@string/aeie_et_hora_activacion"
                 android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>

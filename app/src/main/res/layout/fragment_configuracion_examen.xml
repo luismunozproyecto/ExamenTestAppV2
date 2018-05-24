@@ -36,7 +36,9 @@
             android:text="NOMBRE ASIGNATURA" />
 
     </RelativeLayout>
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ScrollView
         android:layout_width="match_parent"
 
@@ -142,14 +144,17 @@
                     android:text="@string/ce_nota_corte" />
 
             </GridLayout>
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabInfoConfig"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                app:backgroundTint="@color/amber_500"
-                app:srcCompat="@drawable/ic_edit_24dp" />
         </LinearLayout>
     </ScrollView>
+        <Button
+            android:id="@+id/fce_btn_editaro"
+            android:theme="@style/ButtonRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="@string/btn_editar" />
+
+    </RelativeLayout>
+
 
 </LinearLayout>

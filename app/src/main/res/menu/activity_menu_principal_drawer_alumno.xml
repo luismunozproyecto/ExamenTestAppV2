@@ -5,11 +5,28 @@
 
     <group android:checkableBehavior="single">
 
+        <item
+            android:id="@+id/nav_activar_examen_alumno"
+            android:icon="@drawable/ic_playlist_add_check_24dp"
+            android:title="@string/mnda_menu1" />
+        <item
+            android:id="@+id/nav_mis_examenes"
+            android:icon="@drawable/ic_event_note_24dp"
+
+            android:title="@string/mnda_menu2" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/mndp_separador">
         <menu>
-
+            <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="@string/mndp_menu4" />
+            <item
+                android:id="@+id/nav_cerrar_sesion"
+                android:icon="@drawable/ic_close_24dp"
+                android:title="@string/mndp_menu5" />
         </menu>
     </item>
 

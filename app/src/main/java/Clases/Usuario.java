@@ -14,16 +14,19 @@ public class Usuario implements Parcelable {
     private String password;
     private String dni;
     private String avatar;
+    private int es_profesor;
 
-    public Usuario(String usuario, String email, String password, String dni, String avatar) {
+    public Usuario(String usuario, String email, String password, String dni, String avatar, int es_profesor) {
         this.usuario = usuario;
         this.email = email;
         this.password = password;
         this.dni = dni;
         this.avatar = avatar;
+        this.es_profesor=es_profesor;
     }
 
     public Usuario() {
+
     }
 
     public Usuario(Parcel p) {
@@ -32,6 +35,7 @@ public class Usuario implements Parcelable {
        this.password = p.readString();
        this.dni = p.readString();
        this.avatar = p.readString();
+       this.es_profesor = p.readInt();
     }
 
 
@@ -47,7 +51,13 @@ public class Usuario implements Parcelable {
         }
     };
 
+    public int getEs_profesor() {
+        return es_profesor;
+    }
 
+    public void setEs_profesor(int es_profesor) {
+        this.es_profesor = es_profesor;
+    }
     public String getUsuario() {
         return usuario;
     }
@@ -95,12 +105,12 @@ public class Usuario implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
         dest.writeString(this.usuario);
         dest.writeString(this.email);
         dest.writeString(this.password);
         dest.writeString(this.dni);
         dest.writeString(this.avatar);
+        dest.writeInt(this.es_profesor);
 
     }
 }
