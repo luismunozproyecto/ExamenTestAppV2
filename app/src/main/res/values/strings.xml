@@ -5,6 +5,7 @@
     <string name="ma_tv_nombre">ExamenTestApp</string>
     <string name="gen_campos_vacios">Debes de rellenar todos los campos</string>
     <string name="gen_passwords_diferentes">Las contraseñas no coinciden</string>
+    <string name="gen_passwords_formato">La contraseña debe de contener numeros y letras</string>
     <string name="gen_email_no_valido">El formato del email no es valido</string>
     <string name="btn_editar">Editar</string>
     <!--LOGIN ACTIVITY-->
@@ -142,6 +143,7 @@
     <string name="title_activity_editar_pregunta">Editar Pregunta</string>
 
     <!-- ACTIVITIY NUEVO CONFIG EXAMEN -->
+    <string name="anec_et_cero">0</string>
     <string name="anec_et_duracion">Duracion</string>
     <string name="anec_tv_limite_tiempo">Limite de tiempo: </string>
     <string name="anec_et_numero_preguntas">Numero de preguntas</string>

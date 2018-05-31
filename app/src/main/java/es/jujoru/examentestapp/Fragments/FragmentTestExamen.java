@@ -3,6 +3,7 @@ package es.jujoru.examentestapp.Fragments;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -13,6 +14,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +35,14 @@ public class FragmentTestExamen extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     public static final String EXTRA_PARAM1 = "EXAMEN";
     public static final String EXTRA_PARAM2 = "PREGUNTA";
+    public static final String EXTRA_POSITION = "POSITION";
     private static final String ARG_PARAM1 = "EXAMEN";
     private Examen examen;
     String preguntaSeleccionada;
     Pregunta p;
-
+    int pos;
+    DatabaseReference dbRef;
+    ValueEventListener valueEventListener;
     ListView lvPreguntas;
     List<Pregunta> listaPreguntas = new ArrayList<Pregunta>();
     public FragmentTestExamen() {
@@ -120,7 +129,9 @@ public class FragmentTestExamen extends Fragment {
         AlertDialog alert = builder.create();
         alert.show();
     }
-
+    private void eliminarPregunta(int pos){
+        listaPreguntas.remove(pos);
+    }
     private void obtenerPreguntas (){
         String[] preguntas = new String[listaPreguntas.size()];
 
@@ -141,7 +152,8 @@ public class FragmentTestExamen extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                   preguntaSeleccionada = parent.getItemAtPosition(position).toString();
                   p = listaPreguntas.get(position);
-                mostrarOpciones();
+                  pos = position;
+                  mostrarOpciones();
             }
         });
        // return preguntas;
@@ -156,7 +168,24 @@ public class FragmentTestExamen extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                 p = listaPreguntas.get(pos);
+                                dbRef = FirebaseDatabase.getInstance().getReference()
+                                        .child("creator/examenes/"+p.getId_examen()+"/preguntas");
 
+
+                                dbRef.child(pos+"").removeValue(new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(DatabaseError error, DatabaseReference databaseReference) {
+                                        if(error == null) {
+                                            Snackbar.make(getView(),"Se eliminó la pregunta correctamente", Snackbar.LENGTH_LONG).show();
+                                            eliminarPregunta(pos);
+                                            obtenerPreguntas();
+
+                                        }else {
+                                            Snackbar.make(getView(),"La pregunta no se ha podido eliminar", Snackbar.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -175,6 +204,11 @@ public class FragmentTestExamen extends Fragment {
             break;
             case "Editar":
                 Intent ie = new Intent(getActivity(), ActivityEditarPregunta.class );
+                ie.putExtra(EXTRA_PARAM2,p);
+                ie.putExtra(EXTRA_PARAM1,examen);
+                ie.putExtra(EXTRA_POSITION,pos);
+
+
                 startActivity(ie);
             break;
 

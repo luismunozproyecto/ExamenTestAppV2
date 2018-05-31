@@ -120,6 +120,7 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_hat"
                 android:ems="10"
+                android:focusableInTouchMode="false"
                 android:hint="@string/aeie_et_fecha"
                 android:inputType="text" />
 
@@ -135,6 +136,7 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_hat"
+                android:focusableInTouchMode="false"
                 android:ems="10"
                 android:hint="@string/aeie_et_hora"
                 android:inputType="text" />
@@ -152,6 +154,7 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_hat"
                 android:ems="10"
+                android:focusableInTouchMode="false"
                 android:hint="@string/aeie_et_fecha_activacion"
                 android:inputType="text" />
 
@@ -168,6 +171,7 @@ tools:context="es.jujoru.examentestapp.ActivityEditarInformacionExamen">
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_hat"
                 android:ems="10"
+                android:focusableInTouchMode="false"
                 android:hint="@string/aeie_et_hora_activacion"
                 android:inputType="text" />
 

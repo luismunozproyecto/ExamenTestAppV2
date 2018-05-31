@@ -47,7 +47,7 @@ public class ActivityEditarConfiguracionExamen extends AppCompatActivity {
     private void cargarComponentes(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         aece_titulo = (TextView)findViewById(R.id.aece_titulo);

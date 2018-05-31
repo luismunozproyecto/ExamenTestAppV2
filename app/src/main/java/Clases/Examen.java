@@ -34,7 +34,17 @@ public class Examen implements Parcelable{
     double nota_corte;
     List<Pregunta> preguntas;
 
-
+    public Examen(String nombre, String nom_usuario, String asignatura,String tema,String fecha,String hora, String fecha_activacion, String hora_activacion, String argumentario){
+        this.nombre = nombre;
+        this.nom_usuario=nom_usuario;
+        this.asignatura =asignatura;
+        this.tema= tema;
+        this.fecha=fecha;
+        this.hora=hora;
+        this.fecha_activacion=fecha_activacion;
+        this.hora_activacion=hora_activacion;
+        this.argumentario=argumentario;
+    }
     public Examen(String nombre, String fecha, String asignatura, int activo, List<Pregunta> preguntas) {
         this.nombre = nombre;
         this.asignatura = asignatura;

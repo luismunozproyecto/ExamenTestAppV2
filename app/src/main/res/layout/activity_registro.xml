@@ -63,7 +63,7 @@
      style="@style/EditTextFormulario"
         android:drawableLeft="@drawable/ic_vpn_key_24dp"
         android:hint="@string/ra_et_dni"
-        android:inputType="textPassword" />
+        android:inputType="text" />
 
     <RelativeLayout
         android:layout_width="match_parent"

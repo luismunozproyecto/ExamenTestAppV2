@@ -48,7 +48,7 @@ public class ActivityVerPregunta extends AppCompatActivity {
     private void cargarElementos() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         avp_pregunta = (TextView) findViewById(R.id.avp_pregunta);
         avp_res1 = (TextView) findViewById(R.id.avp_res1);

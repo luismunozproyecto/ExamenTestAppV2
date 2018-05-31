@@ -1,9 +1,14 @@
 package es.jujoru.examentestapp;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +20,17 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import org.w3c.dom.Text;
 
 import Clases.Usuario;
 import es.jujoru.examentestapp.Fragments.FragmentActivarExamen;
@@ -26,7 +42,13 @@ import es.jujoru.examentestapp.Fragments.FragmentVerNotas;
 public class ActivityMenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Usuario u =null;
-    int esAlumno=-1;
+    TextView tv;
+    ImageView iv;
+    int esProfesor=-1;
+    static final String EXTRA_USUARIO="USUARIO";
+
+    FirebaseStorage storage;
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +56,19 @@ public class ActivityMenuPrincipal extends AppCompatActivity
         Bundle b= getIntent().getExtras();
         if(b!=null){
            u = b.getParcelable(ActivityLogin.EXTRA_USUARIO);
-           esAlumno = u.getEs_profesor();
+            esProfesor = u.getProfesor();
+
+            if(u.getUsuario().equals("admin")){
+                esProfesor=1;
+            }
+            SharedPreferences prefs =
+                    getSharedPreferences("PreferenciasUsuario", Context.MODE_PRIVATE);
+
+            String user = prefs.getString("nombre", "admin111");
+            Toast.makeText(getApplicationContext(), user, Toast.LENGTH_LONG).show();
         }
 
-        if(esAlumno == 1){
+        if(esProfesor==0){
             setContentView(R.layout.activity_menu_principal_alumno);
         }else{
             setContentView(R.layout.activity_menu_principal);
@@ -55,11 +86,12 @@ public class ActivityMenuPrincipal extends AppCompatActivity
             }
         });
 
-        if(esAlumno == 1){
+        if(esProfesor==0){
             fab.setVisibility(View.INVISIBLE);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -67,8 +99,34 @@ public class ActivityMenuPrincipal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+
+        iv = (ImageView) headerView.findViewById(R.id.cabecera_nd_image);
+        tv = (TextView)headerView.findViewById(R.id.cabecera_nd_usuario);
+        tv.setText("Bienvenido: "+u.getUsuario());
+        cargarImagen();
+
     }
 
+    private void cargarImagen(){
+        //Firebase
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
+        storageReference.child("avatares/"+u.getAvatar()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getApplicationContext()).load(uri.toString()).into(iv);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -113,6 +171,7 @@ public class ActivityMenuPrincipal extends AppCompatActivity
             titulo = getString(R.string.vn_titulo);
         } else if (id == R.id.nav_perfil) {
             Intent i = new Intent(getApplicationContext(), ActivityPerfil.class);
+            i.putExtra(EXTRA_USUARIO,u);
             startActivity(i);
         } else if (id == R.id.nav_cerrar_sesion) {
             Intent i = new Intent(getApplicationContext(), ActivityLogin.class);

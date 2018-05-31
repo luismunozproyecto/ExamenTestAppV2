@@ -16,6 +16,7 @@ public class Usuario implements Parcelable {
     private String avatar;
     private int es_profesor;
 
+
     public Usuario(String usuario, String email, String password, String dni, String avatar, int es_profesor) {
         this.usuario = usuario;
         this.email = email;
@@ -51,11 +52,11 @@ public class Usuario implements Parcelable {
         }
     };
 
-    public int getEs_profesor() {
+    public int getProfesor() {
         return es_profesor;
     }
 
-    public void setEs_profesor(int es_profesor) {
+    public void setProfesor(int es_profesor) {
         this.es_profesor = es_profesor;
     }
     public String getUsuario() {
