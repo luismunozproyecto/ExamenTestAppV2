@@ -44,6 +44,8 @@ public class ActivityLogin extends AppCompatActivity {
         etUsuario = (EditText)findViewById(R.id.la_et_usuario);
         etPassword = (EditText)findViewById(R.id.la_et_password);
 
+        etUsuario.setText("roberto");
+        etPassword.setText("rob1");
     }
 
     public void onClickIrRegistro(View view){

@@ -65,7 +65,6 @@ public class ActivityMenuPrincipal extends AppCompatActivity
                     getSharedPreferences("PreferenciasUsuario", Context.MODE_PRIVATE);
 
             String user = prefs.getString("nombre", "admin111");
-            Toast.makeText(getApplicationContext(), user, Toast.LENGTH_LONG).show();
         }
 
         if(esProfesor==0){
@@ -177,10 +176,10 @@ public class ActivityMenuPrincipal extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), ActivityLogin.class);
             startActivity(i);
             finish();
-        }else if(id ==R.id.nav_activar_examen_alumno){
+        }/*else if(id ==R.id.nav_activar_examen_alumno){
             fragment = new FragmentAlumnoActivarExamen();
             titulo = getString(R.string.faae_titulo);
-        }else if(id ==R.id.nav_mis_examenes){
+        }*/else if(id ==R.id.nav_mis_examenes){
             fragment = new FragmentAlumnoMisExamenes();
             titulo = getString(R.string.faae_titulo);
         }

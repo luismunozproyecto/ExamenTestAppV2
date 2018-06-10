@@ -5,10 +5,10 @@
 
     <group android:checkableBehavior="single">
 
-        <item
+       <!-- <item
             android:id="@+id/nav_activar_examen_alumno"
             android:icon="@drawable/ic_playlist_add_check_24dp"
-            android:title="@string/mnda_menu1" />
+            android:title="@string/mnda_menu1" /> -->
         <item
             android:id="@+id/nav_mis_examenes"
             android:icon="@drawable/ic_event_note_24dp"

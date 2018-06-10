@@ -16,15 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".ActivityLogin"
@@ -41,10 +37,7 @@
         <activity
             android:name=".ActivityMenuPrincipal"
             android:label="@string/title_activity_menu_principal"
-            android:theme="@style/AppTheme.NoActionBar">
-
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ActivityPerfil"
             android:label="@string/title_activity_perfil"
@@ -150,12 +143,14 @@
         <activity
             android:name=".ActivityAlumnoPregunta"
             android:label="@string/title_activity_alumno_pregunta"
+            android:noHistory="true"
             android:parentActivityName=".ActivityAlumnoExamen"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="es.jujoru.examentestapp.ActivityAlumnoExamen" />
         </activity>
+        <activity android:name=".ActivityAlumnoNotaFinal"></activity>
     </application>
 
 </manifest>
